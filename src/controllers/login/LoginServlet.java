@@ -89,6 +89,8 @@ public class LoginServlet extends HttpServlet {
 			rd.forward(request, response);
 		} else {
 			//Redirect to TopPage as loginStatus if authenticated
+			request.getSession().setAttribute("login_employee", e);
+
 			request.getSession().setAttribute("flush", "ログインしました。");
 			response.sendRedirect(request.getContextPath() + "/");
 		}
